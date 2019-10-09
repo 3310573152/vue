@@ -17,8 +17,8 @@
             </li>
         </ul>
         <ul>
-            <li v-for="(animal,index) in animals">
-                {{index+1}}:{{animal.name}}-{{animal.age}}
+            <li v-for="(animal,index) in sortAnimal">
+                {{index}}:{{animal.name}}-{{animal.age}}
             </li>
         </ul>  
     </div>
@@ -28,29 +28,31 @@
             data:{
               items:[53,23,14,76,54,48,69],
               animals:[
-                  {name:'panda',age:33},
-                  {name:'cat',age:20},
-                  {name:'dog',age:10},
+                  {name:'panda',age:30},
+                  {name:'cat',age:21},
+                  {name:'dog',age:45},
               ]
             },
             computed: {
                 sortItems:function(){
-                    return this.items.sort();
+                    return this.items.sort(sortNumber);
+                },
+
+                sortAnimal:function(){
+                    return sortByKey(this.animals,'age')
                 }
             }
         });
         function sortNumber(a,b){
-            return a-b;
+            return a-b
         }
         // 数组对象方法排序:
         function sortByKey(array,key){
-            return array.sort(function(a,b){
                 return array.sort(function(a,b){
                     var x=a[key];
                     var y=b[key];
                     return ((x<y)?-1:((x>y)?1:0));
                 });
-            });
         }
 
     </script>
