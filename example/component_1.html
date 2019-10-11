@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>component_1</title>
+    <script type="text/javascript" src="../assets/js/vue.min.js"></script>
+</head>
+<body>
+    <h1>component_1</h1>
+    <hr>
+    <div id="app">
+        <Jennica></Jennica>
+    </div>
+    <script type="text/javascript">
+        Vue.component('Jennica',{
+            template:`<div style="color:red">我是全局的Jennica组件</div>`
+        })
+        var app=new Vue({
+            el:'#app',
+           
+        })
+    </script>
+</body>
+</html>
