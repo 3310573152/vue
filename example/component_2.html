@@ -4,15 +4,18 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>component_1</title>
+    <title>component_2</title>
     <script type="text/javascript" src="../assets/js/vue.min.js"></script>
 </head>
 <body>
-    <h1>component_1</h1>
+    <h1>component_2</h1>
     <hr>
     <div id="app">
-        <Jennica></Jennica>
-        <panda></panda>
+      
+        <!-- <panda v-bind:here="message"></panda> -->
+        <!-- 以上代码可以简写成下面代码的形式 -->
+        <panda :here="message"></panda>
+        <!-- 书写形式应是小驼峰的形式，不能带-或是-,因为vue不支持 -->
     </div>
     <!-- <Jennica></Jennica> 此时这行代码未生效 ,必须在vue的作用域里面-->
     <script type="text/javascript">
@@ -21,10 +24,14 @@
         })
         var app=new Vue({
             el:'#app',
+            data:{
+                message:'China'
+            },
            components:{
                //panda的位置必须是一个字符串
                 "panda":{
-                    template:`<div style="color:green">我是局部的panda组件</div>`
+                    template:`<div style="color:green">Panda from {{here}}</div>`,
+                    props:['here']//*此处不是一个对象，应是一个数组
                 }
            }
         })

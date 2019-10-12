@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>propsData option</title>
+    <script type="text/javascript" src="../assets/js/vue.min.js"></script>
+</head>
+<body>
+    <h1>propsData option</h1>
+    <hr>
+    <!-- 使用标签名 -->
+    <header></header>
+   
+    <script type="text/javascript">
+    // 定义一个名字为header_a的扩展
+        var header_a=Vue.extend({
+            template:`<p>{{message}}-{{a}}</p>`,
+            // 一定要有return 
+            data:function(){
+                return {
+                    message:'Hello , I am header!'
+                }
+             },
+             props:['a']
+        });
+        // 1.用mount()方法挂载扩展,然后向其中传值
+        new header_a({propsData:{a:11}}).$mount('header');
+
+    </script>
+</body>
+</html>
